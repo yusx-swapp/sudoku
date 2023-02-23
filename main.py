@@ -16,3 +16,4 @@ if __name__ == '__main__':
     parser.add_argument('--input_file', type=str)
     args = parser.parse_args()
     main(args.input_file)
+    

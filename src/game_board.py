@@ -60,6 +60,7 @@ class sudoku:
                  self.board[random_row,random_cols[1]],self.board[random_row,random_cols[0]]
             new_fitness = self.fitness(new_states)
 
+
             if new_fitness <= self.current_fitness:
 
                 self.step+=1    
@@ -69,7 +70,16 @@ class sudoku:
                     self.show_board()
                 if self.step >= max_step:
                     break
-            
+            else:
+                from pyprobs import Probability as pr
+                if pr.prob(0.01):
+                    self.step+=1    
+                    self.board = new_states
+                    self.current_fitness = new_fitness
+                    if self.step % 10000 == 0:
+                        self.show_board()
+                    if self.step >= max_step:
+                        break
     def check_repeat(self, numbers):
         numbers = numbers.reshape(-1)
         hashMap = {}
