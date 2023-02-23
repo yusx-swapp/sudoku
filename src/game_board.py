@@ -72,7 +72,7 @@ class sudoku:
                     break
             else:
                 from pyprobs import Probability as pr
-                if pr.prob(0.01):
+                if pr.prob(0):
                     self.step+=1    
                     self.board = new_states
                     self.current_fitness = new_fitness
